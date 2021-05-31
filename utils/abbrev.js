@@ -1,11 +1,11 @@
 export default function Abbrev(num) {
-    if (!num || isNaN(num)) return '0';
-    if (typeof num === 'string') num = parseInt(num);
+    if (!num || isNaN(num)) return "0";
+    if (typeof num === "string") num = parseInt(num);
     if (num < 1000) return num.toString();
     const decPlaces = Math.pow(10, 1);
-    const abbrev = ['K', 'M', 'B', 'T'];
+    const abbrev = ["K", "M", "B", "T"];
 
-    let dat = '';
+    let dat = "";
 
     for (let i = abbrev.length - 1; i >= 0; i--) {
         const size = Math.pow(10, (i + 1) * 3);

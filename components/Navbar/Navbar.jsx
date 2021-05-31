@@ -17,13 +17,13 @@ export default function Navbar() {
             e.preventDefault();
             handleClick();
         }
-    }
+    };
 
     useEffect(() => {
         const q = new URLSearchParams(window.location.search).get("query");
         const elm = document.getElementById("searchQuery");
 
-        if (q && elm) elm.value = q; 
+        if (q && elm) elm.value = q;
     });
 
     return (
@@ -43,7 +43,7 @@ export default function Navbar() {
                         </button>
                     </div>
                     <div className="relative mt-1 mx-auto w-3/5">
-                        <input onKeyDown={handleEnter} id="searchQuery" type="text" className="font-semibold w-full pl-3 pr-10 py-2 border-2 border-gray-500 rounded-sm focus:outline-none transition-colors" placeholder="Search"/>
+                        <input onKeyDown={handleEnter} id="searchQuery" type="text" className="font-semibold w-full pl-3 pr-10 py-2 border-2 border-gray-500 rounded-sm focus:outline-none transition-colors" placeholder="Search" />
                         <button onClick={handleClick} className="block w-7 h-7 text-center text-xl leading-0 absolute top-2 right-2 text-gray-500 focus:outline-none hover:text-gray-900 transition-colors">
                             <FontAwesomeIcon icon={faSearch} />
                         </button>
@@ -70,9 +70,7 @@ export default function Navbar() {
                         <ul>
                             <li className="mb-1">
                                 <Link href="/">
-                                    <a className="block p-4 text-sm font-semibold text-gray-200 hover:bg-gray-200 hover:text-gray-600 rounded">
-                                        Home
-                                    </a>
+                                    <a className="block p-4 text-sm font-semibold text-gray-200 hover:bg-gray-200 hover:text-gray-600 rounded">Home</a>
                                 </Link>
                             </li>
                         </ul>
@@ -80,5 +78,5 @@ export default function Navbar() {
                 </nav>
             </div>
         </section>
-    )
+    );
 }

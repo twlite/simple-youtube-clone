@@ -16,5 +16,5 @@ export default function Application({ Component, pageProps }) {
             </Head>
             <Component {...pageProps} />
         </>
-    )
+    );
 }

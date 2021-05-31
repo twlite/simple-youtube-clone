@@ -12,9 +12,7 @@ export default function VideoCard({ data }) {
                     </div>
                     <div className="mb-4">
                         <h4 className="text-md font-semibold">{data.title}</h4>
-                        <p className="mt-2 font-semibold text-sm text-grey-darker">
-                            {data.channel.name}
-                        </p>
+                        <p className="mt-2 font-semibold text-sm text-grey-darker">{data.channel.name}</p>
                         <p className="mt-1 font-normal text-xs text-grey-darker">
                             {abbrev(data.views)} views • {data.uploadedAt}
                         </p>
@@ -22,5 +20,5 @@ export default function VideoCard({ data }) {
                 </div>
             </Link>
         </div>
-    )
+    );
 }

@@ -2,12 +2,10 @@ module.exports = {
     purge: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
     darkMode: "class",
     variants: {
-        extend: {},
+        extend: {}
     },
     corePlugins: {
-        fontFamily: false,
+        fontFamily: false
     },
-    plugins: [
-        require('@tailwindcss/aspect-ratio'),
-    ],
+    plugins: [require("@tailwindcss/aspect-ratio")]
 };
