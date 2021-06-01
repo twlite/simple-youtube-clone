@@ -31,11 +31,9 @@
     "@fortawesome/free-brands-svg-icons": "^5.15.3",
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
     "@fortawesome/react-fontawesome": "^0.1.14",
-    "add": "^2.0.6",
     "next": "10.2.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "yarn": "^1.22.10",
     "youtube-sr": "^4.1.1"
   },
   "devDependencies": {
