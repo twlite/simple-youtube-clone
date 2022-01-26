@@ -15,17 +15,17 @@ export default class Homepage extends Component {
 
     componentDidMount() {
         const q = new URLSearchParams(window.location.search).get("v");
-        if (!q) return (window.location.href = "/404");
+        if (!q) return;
 
         if (!this.state.video)
             fetch(`${window.location.origin}/api/video?id=${q}`)
                 .then((res) => res.json())
                 .then((data) => {
-                    if (!data.data) return (window.location.href = "/404");
+                    if (!data.data) return;
                     this.setState({ video: data.data });
                 })
                 .catch((e) => {
-                    window.location.href = "/404";
+                    // window.location.href = "/404";
                 });
     }
 
