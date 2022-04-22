@@ -8,7 +8,8 @@ export default class Homepage extends Component {
         super(...props);
 
         this.state = {
-            videos: []
+            videos: [],
+            time: null
         };
     }
 
@@ -19,7 +20,7 @@ export default class Homepage extends Component {
             fetch(`${window.location.origin}/api/search?query=${q}`)
                 .then((res) => res.json())
                 .then((data) => {
-                    this.setState({ videos: data.data || null });
+                    this.setState({ videos: data.data || null, time: data.time });
                 })
                 .catch((e) => {
                     this.setState({ videos: null });
@@ -42,6 +43,7 @@ export default class Homepage extends Component {
                 <Navbar />
                 <div className="p-4">
                     <div className="container">
+                        <p className="text-center text-sm text-black">{this.state.time != null ? `Search: Took ${this.state.time}ms` : "Search Results"}</p>
                         <div class="block">
                             {this.state.videos.map((m, i) => (
                                 <Link href={`/watch?v=${m.id}`}>

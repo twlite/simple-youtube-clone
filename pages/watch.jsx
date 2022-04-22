@@ -9,7 +9,8 @@ export default class Homepage extends Component {
         super(...props);
 
         this.state = {
-            video: null
+            video: null,
+            time: null
         };
     }
 
@@ -22,7 +23,7 @@ export default class Homepage extends Component {
                 .then((res) => res.json())
                 .then((data) => {
                     if (!data.data) return;
-                    this.setState({ video: data.data });
+                    this.setState({ video: data.data, time: data.time });
                 })
                 .catch((e) => {
                     // window.location.href = "/404";
@@ -45,6 +46,7 @@ export default class Homepage extends Component {
                 <Navbar />
                 <div className="container">
                     <div className="p-2 ml-10">
+                        <p className="text-center text-sm text-black">{this.state.time != null ? `Get Video: Took ${this.state.time}ms` : "Get Video"}</p>
                         <div className="aspect-w-8 aspect-h-4">
                             <iframe src={`https://www.youtube.com/embed/${this.state.video.id}?autoplay=1&enablejsapi=1`} autoplay allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="video"></iframe>
                         </div>

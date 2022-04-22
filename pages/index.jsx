@@ -7,7 +7,8 @@ export default class Homepage extends Component {
         super(...props);
 
         this.state = {
-            videos: []
+            videos: [],
+            time: null
         };
     }
 
@@ -16,8 +17,8 @@ export default class Homepage extends Component {
             fetch(`${window.location.origin}/api/homepage`)
                 .then((res) => res.json())
                 .then((data) => {
-                    if (!data.length) return alert("Could not fetch videos");
-                    this.setState({ videos: data });
+                    if (!data?.data?.length) return alert("Could not fetch videos");
+                    this.setState({ videos: data.data, time: data.time });
                 })
                 .catch((e) => {
                     alert("Could not fetch videos");
@@ -39,6 +40,7 @@ export default class Homepage extends Component {
             <div>
                 <Navbar />
                 <div className="p-4 w-full">
+                    <p className="text-center text-sm text-black">{this.state.time != null ? `Homepage: Took ${this.state.time}ms` : "Homepage"}</p>
                     <div className={`grid grid-flow-col grid-cols-4 grid-rows-3 gap-4`}>
                         {this.state.videos.slice(0, 12).map((m, i) => (
                             <VideoCard data={m} key={i} />
